@@ -57,18 +57,17 @@ public class Main {
             }
         } while (checker ==0);
         System.out.println("Your move:"+args[Human_move]);
-        int ch = args.length-1;
-        WinCheck(Human_move, PCmove, ch);
+        WinCheck(Human_move, PCmove, args.length/2);
         System.out.println("Computer move:"+codemsg);
         System.out.println("HMAC key:"+Key);
     }
-    public static void WinCheck(int HM, int PCM, int upper) {
+    public static void WinCheck(int HM, int PCM, int HL) {
         if (HM == PCM){
             System.out.println("DRAW!");
         }
-        if(HM<PCM | (PCM==0 & HM==upper)){
+        if(HM-PCM<0 | HM-PCM>HL){
             System.out.println("YOU LOSE!");
-        } else if (HM>PCM | (HM==0 & PCM==upper)){
+        } else if (HM-PCM>0 & HM-PCM<=HL){
             System.out.println("YOU WIN!");
         }
     }
